@@ -137,21 +137,21 @@ def xlsToXlsx(filepath, sheetname):
 def engToKor(filepath, sheetname):
     sale = '매매'
     rent = '전월'
-    
+     
     # remove last 4 chars (.xls)
     filepath = filepath[:-4]
-    
+     
     firstPart = filepath[0:6]
     secondPart = filepath[6:8]
     thirdPart1 = filepath[8:]
     thirdPart2 = filepath[9:]
-    
-    
+     
+     
     def ifType(thirdPart):
         apartment = '아파트'
         detached = '단독_다가구'
         tenement = '연립_다세대'
-        
+         
         if thirdPart == apartment.decode('utf-8'):
             thirdPart = 'Apartment'
         elif thirdPart == detached.decode('utf-8'):
@@ -159,23 +159,23 @@ def engToKor(filepath, sheetname):
         elif thirdPart == tenement.decode('utf-8'):
             thirdPart = 'Tenement'
         return thirdPart
-    
+     
     if secondPart == sale.decode('utf-8'):
         secondPart = 'Sale'
         thirdPart = ifType(thirdPart1)
     elif secondPart == rent.decode('utf-8'):
         secondPart = 'Rent'
         thirdPart = ifType(thirdPart2)
-    
+     
     resultFilename = firstPart+secondPart+thirdPart
-    
+     
     seoul = '서울'
     busan = '부산'
     if sheetname == seoul.decode('utf-8'):
         resultSheetname = 'Seoul'
     elif sheetname == busan.decode('utf-8'):
         resultSheetname = 'Busan'
-            
+             
     return [resultFilename, resultSheetname] 
 
     
