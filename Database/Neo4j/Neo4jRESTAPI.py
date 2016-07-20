@@ -8,7 +8,6 @@ import Database.Neo4j.Relationship as relationship
 import requests
 import Variables as var
 
-
 def createUniqueNode(key, value, jsonAttributes):
     try:
         nodePointUrl = var.SERVER_ROOT_URI + '/db/data/index/node/venue?uniqueness=get_or_create'
